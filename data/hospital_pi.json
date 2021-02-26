@@ -1,0 +1,14 @@
+{
+    "okinawa": {
+        "name": "沖縄病院",
+        "path": "/usr/share/nginx/html/linebot/okinawa/macaddr/hospital02.txt"
+    },
+    "otowa": {
+        "name": "音羽病院",
+        "path": "/usr/share/nginx/html/linebot/okinawa/macaddr/hospital01.txt"
+    },
+    "sakura": {
+        "name": "桜病院",
+        "path": "/usr/share/nginx/html/linebot/okinawa/macaddr/hospital02-20201216_102502.txt"
+    }
+}
