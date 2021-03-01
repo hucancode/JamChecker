@@ -44,7 +44,7 @@ body {
   color: #fff;
 }
 .gauge-center::before {
-  content: "混雑";
+  content: "混雑度";
   width: 100%;
   float: left;
   opacitY: 0.6;

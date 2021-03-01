@@ -1,73 +1,77 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-　　 
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="gauge.css">
-    <title>沖縄国際通り混雑検知</title>
-    <script src="scripts/gauge.js"></script>
-    <style>
-        @keyframes needle-animation {
-            0% {
-                transform: rotate(0);
+    <head>
+    　　 
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="gauge.css">
+        <title>沖縄国際通り混雑検知</title>
+        <script src="scripts/gauge.js"></script>
+        <style>
+            @keyframes needle-animation {
+                0% {
+                    transform: rotate(0);
+                }
+                100% {
+                    transform: rotate(128deg);
+                }
             }
-            100% {
-                transform: rotate(128deg);
-            }
-        }
-    </style>
-</head>
+        </style>
+    </head>
 
-<body>
-    <center style="display: none;">
-        <!-- <span id="okinawa_font"><?php echo date("Y年m月d日 H時i分");?>&emsp;３密状況</span> -->
-        <h1 id="preview-textfield"></h1>
-        <canvas width=600 height=300 id="gauge-canvas"></canvas>
-    </center>
-    <div class="container">
-        <div class="wrapper">
-            <div class="panel">
-                <div class="gauge">
-                    <div class="gauge-step"><div class="icon"></div></div>
-                    <div class="gauge-step"><div class="icon"></div></div>
-                    <div class="gauge-step"><div class="icon"></div></div>
-                    <div class="gauge-step"><div class="icon"></div></div>
-                    <div class="gauge-step"><div class="icon"></div></div>
+    <body>
+        <main class="w-100">
+        <center style="display: none;">
+            <!-- <span id="okinawa_font"><?php echo date("Y年m月d日 H時i分");?>&emsp;３密状況</span> -->
+            <h1 id="preview-textfield"></h1>
+            <canvas width=600 height=300 id="gauge-canvas"></canvas>
+        </center>
+        
+            <div class="container-fluid">
+                <div class="wrapper">
+                    <div class="panel">
+                        <div class="gauge">
+                            <div class="gauge-step"><div class="icon"></div></div>
+                            <div class="gauge-step"><div class="icon"></div></div>
+                            <div class="gauge-step"><div class="icon"></div></div>
+                            <div class="gauge-step"><div class="icon"></div></div>
+                            <div class="gauge-step"><div class="icon"></div></div>
+                        </div>
+                    
+                        <div class="gauge-center" data-mac-count="66/135"></div>
+                        <div class="needle" style="animation: needle-animation 2s 1;animation-fill-mode: forwards;"></div>
+                        
+                    </div>
                 </div>
-                
-                <div class="gauge-center" data-mac-count="66"></div>
-                <div class="needle" style="animation: needle-animation 2s 1;animation-fill-mode: forwards;"></div>
             </div>
-        </div>
-    </div>
-    <script type="text/javascript">
-            percentColors = [[0.0, "#a9d70b" ], [0.50, "#f9c802"], [1.0, "#ff0000"]];
-            var opts = {
-            angle: -0.2, // The span of the gauge arc
-            lineWidth: 0.2, // The line thickness
-            radiusScale: 1, // Relative radius
-            pointer: {
-                length: 0.6, // // Relative to gauge radius
-                strokeWidth: 0.035, // The thickness
-                color: '#000000' // Fill color
-            },
-            limitMax: false,     // If false, max value increases automatically if value > maxValue
-            limitMin: false,     // If true, the min value of the gauge will be fixed
-            colorStart: '#6FADCF',   // Colors
-            colorStop: '#8FC0DA',    // just experiment with them
-            strokeColor: '#E0E0E0',  // to see which ones work best for you
-            generateGradient: true,
-            highDpiSupport: true,     // High resolution support
-            percentColors: [[0.2, "#a9d70b" ], [0.4, "#f9c802"], [0.6, "#ff0000"],[0.8, "#09d20b" ], [1.0, "#f90002"]],
-            };
-            var target = document.getElementById('gauge-canvas');
-            var gauge = new Gauge(target).setOptions(opts);
-            gauge.setTextField(document.getElementById("preview-textfield"));
-            gauge.animationSpeed = 32; // set animation speed (32 is default value)
-            gauge.maxValue = 150;
-            gauge.setMinValue(0);
-            gauge.set(70);
-    </script>
-</body>
+        </main>
+        <script type="text/javascript">
+                percentColors = [[0.0, "#a9d70b" ], [0.50, "#f9c802"], [1.0, "#ff0000"]];
+                var opts = {
+                angle: -0.2, // The span of the gauge arc
+                lineWidth: 0.2, // The line thickness
+                radiusScale: 1, // Relative radius
+                pointer: {
+                    length: 0.6, // // Relative to gauge radius
+                    strokeWidth: 0.035, // The thickness
+                    color: '#000000' // Fill color
+                },
+                limitMax: false,     // If false, max value increases automatically if value > maxValue
+                limitMin: false,     // If true, the min value of the gauge will be fixed
+                colorStart: '#6FADCF',   // Colors
+                colorStop: '#8FC0DA',    // just experiment with them
+                strokeColor: '#E0E0E0',  // to see which ones work best for you
+                generateGradient: true,
+                highDpiSupport: true,     // High resolution support
+                percentColors: [[0.2, "#a9d70b" ], [0.4, "#f9c802"], [0.6, "#ff0000"],[0.8, "#09d20b" ], [1.0, "#f90002"]],
+                };
+                var target = document.getElementById('gauge-canvas');
+                var gauge = new Gauge(target).setOptions(opts);
+                gauge.setTextField(document.getElementById("preview-textfield"));
+                gauge.animationSpeed = 32; // set animation speed (32 is default value)
+                gauge.maxValue = 150;
+                gauge.setMinValue(0);
+                gauge.set(70);
+        </script>
+    </body>
 </html>

@@ -42,47 +42,46 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Bang Nguyen Huu">
-    <link rel="stylesheet" href="gauge.css">
-    <title>沖縄国際通り混雑検知</title>
-    <style>
-        @keyframes needle-animation {
-            0% {
-                transform: rotate(0);
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Bang Nguyen Huu">
+        <link rel="stylesheet" href="gauge.css">
+        <title>沖縄国際通り混雑検知</title>
+        <style>
+            @keyframes needle-animation {
+                0% {
+                    transform: rotate(0);
+                }
+                100% {
+                    <?php 
+                        $angle = $mac_count/$MAX_DEVICE_COUNT*180;
+                        echo('transform: rotate('.$angle.'deg);'); 
+                    ?>
+                }
             }
-            100% {
-                <?php 
-                    $angle = $mac_count/$MAX_DEVICE_COUNT*180;
-                    echo('transform: rotate('.$angle.'deg);'); 
-                ?>
-            }
-        }
-    </style>
-    <link href="./assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-</head>
-
-<body>
-    <main class="w-100">
-        <div class="container-fluid">
-            <div class="wrapper">
-                <div class="panel">
-                    <div class="gauge">
-                        <div class="gauge-step"><div class="icon"></div></div>
-                        <div class="gauge-step"><div class="icon"></div></div>
-                        <div class="gauge-step"><div class="icon"></div></div>
-                        <div class="gauge-step"><div class="icon"></div></div>
-                        <div class="gauge-step"><div class="icon"></div></div>
+        </style>
+        <link href="./assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <main class="w-100">
+            <div class="container-fluid">
+                <div class="wrapper">
+                    <div class="panel">
+                        <div class="gauge">
+                            <div class="gauge-step"><div class="icon"></div></div>
+                            <div class="gauge-step"><div class="icon"></div></div>
+                            <div class="gauge-step"><div class="icon"></div></div>
+                            <div class="gauge-step"><div class="icon"></div></div>
+                            <div class="gauge-step"><div class="icon"></div></div>
+                        </div>
+                        <div class="needle" style="animation: needle-animation 2s 1;animation-fill-mode: forwards;"></div>
+                        <div class="gauge-center" <?php echo('data-mac-count="'.$mac_count.'/'.$MAX_DEVICE_COUNT.'"'); ?> ></div>
                     </div>
-                    <div class="needle" style="animation: needle-animation 2s 1;animation-fill-mode: forwards;"></div>
-                    <div class="gauge-center" <?php echo('data-mac-count="'.$mac_count.'/'.$MAX_DEVICE_COUNT.'"'); ?> ></div>
                 </div>
             </div>
-        </div>
-    </main>
-    <script src="./assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-</body>
+        </main>
+        <script src="./assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    </body>
 </html>
