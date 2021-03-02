@@ -22,11 +22,11 @@ h4
 @media (max-height: 950px) {
   h1
   {
-    font-size: 30pt;
+    font-size: 26pt;
   }
   h3
   {
-    font-size: 20pt;
+    font-size: 18pt;
   }
   h4
   {
@@ -36,11 +36,11 @@ h4
 @media (max-height: 850px) {
   h1
   {
-    font-size: 25pt;
+    font-size: 23pt;
   }
   h3
   {
-    font-size: 18pt;
+    font-size: 16pt;
   }
   h4
   {
@@ -50,11 +50,11 @@ h4
 @media (max-height: 700px) {
   h1
   {
-    font-size: 25pt;
+    font-size: 20pt;
   }
   h3
   {
-    font-size: 15pt;
+    font-size: 14pt;
   }
   h4
   {
@@ -64,7 +64,7 @@ h4
 
 .title
 {
-  height: 15vh;
+  height: 10vh;
   width: 40vh;
   margin: 0 auto;
 }
@@ -76,7 +76,7 @@ h4
 }
 .description
 {
-  height: 5vh;
+  height: 4vh;
   width: 40vh;
   margin: 0 auto;
 }
@@ -120,7 +120,7 @@ h4
 .status-img
 {
   width: 40vh;
-  height: 15vh;
+  height: 12vh;
   margin: 0 auto;
 }
 .status-img img
@@ -148,7 +148,7 @@ h4
   width: 40vh;
   height: 30vh;
   position: relative;
-  margin: 0 auto 5vh auto;
+  margin: 0 auto 4vh auto;
   /* background: rgba(21, 34, 46, 0.25); 
   box-shadow: 0 0 1px 0 rgba(255, 255, 255, 0.32), 0 1px 9px -1px #15222e; */
   background-image: url(assets/background.png);
@@ -166,9 +166,6 @@ h4
     left: 5%;
     bottom: 0;
     overflow: hidden;
-    /* safari fix */
-    -webkit-transform-style: flat;
-    -webkit-transform: translateZ(0px);
 }
 
 .gauge-center {
@@ -181,6 +178,7 @@ h4
   background-image: url(assets/background.png);
   background-size: cover;
   clip-path: circle(25% at bottom center);
+  -webkit-clip-path: circle(25% at bottom center);
 }
 
 .needle-img-root
