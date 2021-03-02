@@ -1,11 +1,12 @@
 <?php
-    
     $MAX_JAM_LEVEL = 5;
-    $MAX_DEVICE_COUNT = 35;
+    $normal = 1;
     $hospital = $_GET["hospital"];
     $data_path = "";
     $last_updated = "__:__";
-    $mac_count = get_mac_count(query_data_path());
+    query_data();
+    $mac_count = get_mac_count($data_path);
+    
     function get_mac_count($txt_input)
     {
         global $last_updated;
@@ -22,32 +23,30 @@
 
     function calculate_jam_level($count)
     {
-        global $MAX_DEVICE_COUNT, $MAX_JAM_LEVEL;
-        return floor(min($count / $MAX_DEVICE_COUNT, 0.9999) * $MAX_JAM_LEVEL);
+        global $normal, $MAX_JAM_LEVEL;
+        return floor(min($count / $normal, 0.9999) * $MAX_JAM_LEVEL);
     }
 
-    function query_data_path()
+    function query_data()
     {
-        global $hospital, $data_path;
+        global $hospital, $data_path, $normal;
         $all_pi = json_decode(file_get_contents("./data/hospital_pi.json"), true);
         // slow, need to optimize this
         foreach ($all_pi as $id => $data) {
             if(strcmp($data['name'], $hospital) == 0)
             {
                 $data_path = $data['path'];
+                $normal = $data['normal'];
                 break;
             }
         }
-        return $data_path;
     }
     
 ?>
 <html>
-
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
         <meta name="author" content="Bang Nguyen Huu">
         <link href="./assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="gauge.css">
@@ -59,7 +58,7 @@
                 }
                 100% {
                     <?php 
-                        $angle = min($mac_count/$MAX_DEVICE_COUNT, 1.0)*180;
+                        $angle = min($mac_count/$normal, 1.0)*180;
                         echo('transform: rotate('.$angle.'deg);'); 
                     ?>
                 }
