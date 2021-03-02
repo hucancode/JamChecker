@@ -1,7 +1,7 @@
 {
     "okinawa": {
         "name": "沖縄病院",
-        "path": "/usr/share/nginx/html/linebot/okinawa/macaddr/hospital02.txt"
+        "path": "/usr/share/nginx/html/linebot/atpop/html/airport02_data.txt"
     },
     "otowa": {
         "name": "音羽病院",

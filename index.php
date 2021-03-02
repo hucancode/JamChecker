@@ -13,6 +13,7 @@
         {
             return "0";
         }
+        // slow, need to optimize this
         $lines = file($txt_input, FILE_IGNORE_NEW_LINES);
         $words = explode(' ', array_pop($lines));
         $last_updated = date ("Y年m月d日 H:i", filemtime($txt_input));
