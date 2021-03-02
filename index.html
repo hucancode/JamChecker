@@ -1,11 +1,11 @@
-<!DOCTYPE html>
 <html>
 
     <head>
     　　 
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="gauge.css">
         <title>沖縄国際通り混雑検知</title>
+        <link href="./assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="gauge.css">
         <script src="scripts/gauge.js"></script>
         <style>
             @keyframes needle-animation {
@@ -20,30 +20,34 @@
     </head>
 
     <body>
-        <main class="w-100">
-        <center style="display: none;">
-            <!-- <span id="okinawa_font"><?php echo date("Y年m月d日 H時i分");?>&emsp;３密状況</span> -->
-            <h1 id="preview-textfield"></h1>
-            <canvas width=600 height=300 id="gauge-canvas"></canvas>
-        </center>
-        
-            <div class="container-fluid">
-                <div class="wrapper">
-                    <div class="panel">
-                        <div class="gauge">
-                            <div class="gauge-step"><div class="icon"></div></div>
-                            <div class="gauge-step"><div class="icon"></div></div>
-                            <div class="gauge-step"><div class="icon"></div></div>
-                            <div class="gauge-step"><div class="icon"></div></div>
-                            <div class="gauge-step"><div class="icon"></div></div>
-                        </div>
-                    
-                        <div class="gauge-center" data-mac-count="66/135"></div>
-                        <div class="needle" style="animation: needle-animation 2s 1;animation-fill-mode: forwards;"></div>
-                        
-                    </div>
+        <main class="w-100 h-100">
+            <!-- 
+            <center style="display: none;">
+                <span id="okinawa_font"><?php echo date("Y年m月d日 H時i分");?>&emsp;３密状況</span>
+                <h1 id="preview-textfield"></h1>
+                <canvas width=600 height=300 id="gauge-canvas"></canvas>
+            </center>
+             -->
+            <div class="title"><h1>ELAN 病院</h1></div>
+            <div class="description"><h3>混み具合表示</h3></div>
+            <div class="status-text"><h3>現在の混雑状況<span class="level-2"></h3></div>
+            <div class="status-img"><img src="assets/status_2.png" /></div>
+            <div class="time-stamp"><h4>更新時点「2021年02月17日 18:40」</h4></div>
+            <div class="panel">
+                <div class="gauge">
+                    <div class="gauge-step"><div class="icon"></div></div>
+                    <div class="gauge-step"><div class="icon"></div></div>
+                    <div class="gauge-step"><div class="icon"></div></div>
+                    <div class="gauge-step"><div class="icon"></div></div>
+                    <div class="gauge-step"><div class="icon"></div></div>
+                </div>
+                <div class="gauge-center"></div>
+                <div class="needle-img" style="animation: needle-animation 2s 1;animation-fill-mode: forwards;"></div>
+                <div class="needle-img-root">
+                    <div class="hole"></div>
                 </div>
             </div>
+            <div class="share-button"><h3>アプリを知人に知らせる</h3></div>
         </main>
         <script type="text/javascript">
                 percentColors = [[0.0, "#a9d70b" ], [0.50, "#f9c802"], [1.0, "#ff0000"]];

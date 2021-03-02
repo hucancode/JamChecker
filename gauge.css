@@ -1,28 +1,170 @@
 @charset "UTF-8";
-body {
-  background: linear-gradient(45deg, #15222e, #8100E0);
+main {
+  background: #EBEBF0;
+}
+h1,h2,h3,h4
+{
+  margin-top: 0;
+  margin-bottom: 0;
+}
+h1
+{
+  font-size: 30pt;
+}
+h3
+{
+  font-size: 20pt;
+}
+h4
+{
+  font-size: 17pt;
+}
+@media (max-height: 950px) {
+  h1
+  {
+    font-size: 30pt;
+  }
+  h3
+  {
+    font-size: 20pt;
+  }
+  h4
+  {
+    font-size: 15pt;
+  }
+}
+@media (max-height: 850px) {
+  h1
+  {
+    font-size: 25pt;
+  }
+  h3
+  {
+    font-size: 18pt;
+  }
+  h4
+  {
+    font-size: 13pt;
+  }
+}
+@media (max-height: 700px) {
+  h1
+  {
+    font-size: 25pt;
+  }
+  h3
+  {
+    font-size: 15pt;
+  }
+  h4
+  {
+    font-size: 10pt;
+  }
 }
 
-.wrapper {
-  width: 40vw;
-  height: 20vw;
-  margin: 5vw auto;
-  padding: 20px 40px;
-  background: rgba(21, 34, 46, 0.25);
-  border-radius: 6px;
-  box-shadow: 0 0 1px 0 rgba(255, 255, 255, 0.32), 0 1px 9px -1px #15222e;
+.title
+{
+  height: 15vh;
+  width: 40vh;
+  margin: 0 auto;
 }
-
+.title, .description, .time-stamp, .share-button, .status-text, .status-img
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.description
+{
+  height: 5vh;
+  width: 40vh;
+  margin: 0 auto;
+}
+.status-text
+{
+  height: 5vh;
+  width: 40vh;
+  margin: 0 auto;
+  background: white;
+}
+.status-text span
+{
+  font-weight: bold;
+  margin: 0 15px;
+}
+.status-text span.level-0:after
+{
+  content: "ブルー";
+  color: #00A5C0;
+}
+.status-text span.level-1:after
+{
+  content: "グリーン";
+  color: #628F40;
+}
+.status-text span.level-2:after
+{
+  content: "イエロー";
+  color: #FFBA1A;
+}
+.status-text span.level-3:after
+{
+  content: "ピンク";
+  color: #DE498E;
+}
+.status-text span.level-4:after
+{
+  content: "レド";
+  color: #E44426;
+}
+.status-img
+{
+  width: 40vh;
+  height: 15vh;
+  margin: 0 auto;
+}
+.status-img img
+{
+  height: 80%;
+}
+.time-stamp
+{
+  height: 5vh;
+  width: 40vh;
+  margin: 0 auto;
+}
+.share-button
+{
+  position: relative;
+  width: 40vh;
+  height: 5vh;
+  margin: 0 auto;
+  border-radius: 9999px 9999px 9999px 9999px;
+  border-color: #324eb3;
+  border-style: solid;
+  border-width: 2px;
+}
 .panel {
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
+  width: 40vh;
+  height: 30vh;
+  position: relative;
+  margin: 0 auto 5vh auto;
+  /* background: rgba(21, 34, 46, 0.25); 
+  box-shadow: 0 0 1px 0 rgba(255, 255, 255, 0.32), 0 1px 9px -1px #15222e; */
+  background-image: url(assets/background.png);
+  background-size: cover;
+  border-radius: 6px;
+}
+
+.gauge {
+    width: 90%;
+    height: 60%;
     font-family: Arial, Helvetica, sans-serif;
-    background: #e7e7e7;
-    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.09), 0 0 35px 5px rgba(255, 255, 255, 0.29);
-    float: left;
+    opacity: 0.75;
     border-radius: 9999px 9999px 0 0;
-    position: relative;
+    position: absolute;
+    left: 5%;
+    bottom: 0;
     overflow: hidden;
     /* safari fix */
     -webkit-transform-style: flat;
@@ -31,48 +173,47 @@ body {
 
 .gauge-center {
   content: "";
-  color: #fff;
+  color: rgb(0, 0, 0);
   position: absolute;
-  width: 50%;
-  height: 50%;
-  right: 25%;
-  bottom: 0;
-  background: #15222E;
-  border-radius: 9999px 9999px 0 0;
-  
-  box-shadow: 0 -13px 15px -10px rgba(0, 0, 0, 0.28);
-  color: #fff;
-}
-.gauge-center::before {
-  content: "混雑度";
   width: 100%;
-  float: left;
-  opacitY: 0.6;
-  text-align: center;
-  padding: 10px 0 0 0;
-}
-.gauge-center::after {
-  content: attr(data-mac-count);
-  font-size: 1.5em;
-  width: 100%;
-  text-align: center;
-  float: left;
-  -webkit-font-smoothing: antialiased;
+  height: 100%;
+  background-color: #EBEBF0;
+  background-image: url(assets/background.png);
+  background-size: cover;
+  clip-path: circle(25% at bottom center);
 }
 
-.needle {
-  width: 45%;
-  height: 10px;
-  background: #15222E;
-  border-bottom-left-radius: 100%;
-  border-bottom-right-radius: 10px;
-  border-top-left-radius: 100%;
-  border-top-right-radius: 10px;
+.needle-img-root
+{
+  width: 15%;
+  height: 20%;
   position: absolute;
-  bottom: 10px;
+  transform-origin: 50% 50%;
+  bottom: -10%;
+  left: 42.5%;
+  border-radius: 9999px 9999px 9999px 9999px;
+  background-color: #1a1311;
+}
+.needle-img-root .hole
+{
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  border-radius: 9999px 9999px 9999px 9999px;
+  background-color: white;
+}
+.needle-img
+{
+  width: 32%;
+  height: 20%;
+  position: absolute;
+  bottom: -10%;
   right: 50%;
-  transform-origin: right bottom;
-  box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.38);
+  transform-origin: 100% 50%;
+  background-image: url(assets/clock_hand.png);
+  background-size: 100% 100%;
 }
 
 .gauge .gauge-step {
@@ -88,48 +229,49 @@ body {
     position: absolute;
     width: 30%;
     height: 30%;
-    top: 60%;
+    top: 62.5%;
     left: 15%;
     transform-origin: center;
     background-size: cover;
     background-repeat: no-repeat;
 }
 .gauge .gauge-step:nth-child(1) {
-    background-color: #1eaa59;
+    background-color: #00a6c0;
     transform: rotate(0deg);
 }
 .gauge .gauge-step:nth-child(1) .icon {
-    background-image: url('assets/smile_1.png');
+    background-image: url('assets/smile_0.png');
 }
 .gauge .gauge-step:nth-child(2) {
-  background-color: #E84C3D;
+  background-color: #628F40;
   transform: rotate(36deg);
 }
 .gauge .gauge-step:nth-child(2) .icon {
     transform: rotate(-36deg);
-    background-image: url('assets/smile_2.png');
+    background-image: url('assets/smile_1.png');
 }
 .gauge .gauge-step:nth-child(3) {
-  background-color: #e67e22;
+  background-color: #FFBA1A;
   transform: rotate(72deg);
 }
 .gauge .gauge-step:nth-child(3) .icon {
     transform: rotate(-72deg);
-    background-image: url('assets/smile_1.png');
+    background-image: url('assets/smile_2.png');
 }
 .gauge .gauge-step:nth-child(4) {
-  background-color: #f1c40f;
+  background-color: #DE498E;
   transform: rotate(108deg);
 }
 .gauge .gauge-step:nth-child(4) .icon {
     transform: rotate(-108deg);
-    background-image: url('assets/smile_2.png');
+    background-image: url('assets/smile_3.png');
 }
 .gauge .gauge-step:nth-child(5) {
-  background-color: #9baa1e;
+  background-color: #E44426;
   transform: rotate(144deg);
 }
 .gauge .gauge-step:nth-child(5) .icon {
     transform: rotate(-144deg);
-    background-image: url('assets/smile_1.png');
+    background-image: url('assets/smile_4.png');
 }
+
